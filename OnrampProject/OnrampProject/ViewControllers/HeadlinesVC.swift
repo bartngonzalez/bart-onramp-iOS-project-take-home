@@ -23,6 +23,11 @@ class HeadlinesVC: UITableViewController {
         headlinesTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
     }
     
+    func scrollToTop() {
+        
+        headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -30,7 +35,7 @@ class HeadlinesVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return 30
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,5 +48,6 @@ class HeadlinesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         headlinesTableView.deselectRow(at: indexPath, animated: true)
+        scrollToTop()
     }
 }
