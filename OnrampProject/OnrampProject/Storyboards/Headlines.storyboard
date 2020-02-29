@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--HeadlinesVC-->
         <scene sceneID="vfm-KV-WIK">
             <objects>
-                <tableViewController id="kt4-Na-ITn" sceneMemberID="viewController">
+                <tableViewController id="kt4-Na-ITn" customClass="HeadlinesVC" customModule="OnrampProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LdO-35-cLf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +31,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="VGB-Td-9T7"/>
+                    <connections>
+                        <outlet property="headlinesTableView" destination="LdO-35-cLf" id="kAi-ce-Xff"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbs-s2-S0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
