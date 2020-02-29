@@ -99,6 +99,10 @@
 		6030FC6E23FF0C79007F0901 /* OnrampProject */ = {
 			isa = PBXGroup;
 			children = (
+				CCBFA08A240A12E70038B55E /* Storyboards */,
+				CCBFA087240A12A60038B55E /* Models */,
+				CCBFA088240A12B80038B55E /* ViewControllers */,
+				CCBFA089240A12D30038B55E /* ViewModels */,
 				6030FC6F23FF0C79007F0901 /* AppDelegate.swift */,
 				6030FC7123FF0C79007F0901 /* SceneDelegate.swift */,
 				6030FC7323FF0C79007F0901 /* ViewController.swift */,
@@ -126,6 +130,34 @@
 				6030FC9323FF0C7A007F0901 /* Info.plist */,
 			);
 			path = OnrampProjectUITests;
+			sourceTree = "<group>";
+		};
+		CCBFA087240A12A60038B55E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CCBFA088240A12B80038B55E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CCBFA089240A12D30038B55E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CCBFA08A240A12E70038B55E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
