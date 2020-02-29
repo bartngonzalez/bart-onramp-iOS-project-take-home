@@ -25,6 +25,8 @@ class HeadlinesVC: UITableViewController {
     
     func scrollToTop() {
         
+        print("scrollToTop()")
+        
         headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     

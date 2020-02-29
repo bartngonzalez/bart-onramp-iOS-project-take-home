@@ -11,20 +11,78 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCellXIB" id="KGk-i7-Jjw" customClass="ArticleTableViewCellVC" customModule="OnrampProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="500" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cch-SF-gFc">
-                        <rect key="frame" x="16" y="12" width="52" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-zx-nfk">
+                        <rect key="frame" x="15" y="10" width="470" height="130"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-TY-qxG">
+                                <rect key="frame" x="0.0" y="15" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6zP-jK-c8y"/>
+                                    <constraint firstAttribute="height" constant="100" id="aM2-2x-qcV"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="L1N-RV-WaR">
+                                <rect key="frame" x="110" y="20" width="360" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="U4d-o8-bxw">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="47.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kelly Tyko, Jessica Guynn, Mike Snider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBh-FT-HVH">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Coronavirus fears empty store shelves of toilet paper, bottled water, masks as shoppers stock up - USA TODAY" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJD-eg-uCB">
+                                                <rect key="frame" x="0.0" y="16" width="360" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CaT-9h-viQ">
+                                        <rect key="frame" x="0.0" y="75.5" width="360" height="14.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="USA Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt2-05-dUf">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 min ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbW-V6-waP">
+                                                <rect key="frame" x="180" y="0.0" width="180" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="U4d-o8-bxw" secondAttribute="trailing" id="aig-Ld-zT1"/>
+                                    <constraint firstAttribute="trailing" secondItem="CaT-9h-viQ" secondAttribute="trailing" id="oYm-DB-vIF"/>
+                                    <constraint firstItem="CaT-9h-viQ" firstAttribute="leading" secondItem="L1N-RV-WaR" secondAttribute="leading" id="rhZ-2u-a0b"/>
+                                    <constraint firstItem="U4d-o8-bxw" firstAttribute="leading" secondItem="L1N-RV-WaR" secondAttribute="leading" id="ukI-7F-QIt"/>
+                                    <constraint firstAttribute="height" constant="90" id="wrt-Yi-2wW"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                    </stackView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="P8h-zx-nfk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="2oX-Y5-7V3"/>
+                    <constraint firstAttribute="trailing" secondItem="P8h-zx-nfk" secondAttribute="trailing" constant="15" id="RIf-1E-6Rc"/>
+                    <constraint firstItem="P8h-zx-nfk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fRk-vf-i1V"/>
+                    <constraint firstAttribute="bottom" secondItem="P8h-zx-nfk" secondAttribute="bottom" constant="10" id="x8Y-u0-G88"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
