@@ -11,6 +11,8 @@ class HeadlinesVC: UITableViewController {
     
     @IBOutlet var headlinesTableView: UITableView!
     
+    var articles: [Article] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,64 @@ class HeadlinesVC: UITableViewController {
         
         let articleTableViewCellXIB = UINib(nibName: "ArticleTableViewCell", bundle: nil)
         headlinesTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
+        
+        newsAPI()
+    }
+    
+    func newsAPI() {
+        
+        print("newsAPI()")
+        
+        let headers = [
+            "Content-Type": "application/json",
+        ]
+        
+        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=3&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        
+        session.dataTask(with: request) { (data, response, error) in
+            
+            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                print("statusCode: \(response.statusCode)")
+            } else {
+                print("newsAPI() - Faild")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    print(json)
+                    
+                    if let articles = json["articles"] as? [[String: Any]] {
+                        self.createArticles(articles: articles)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+    }
+    
+    func createArticles(articles: [[String: Any]]) {
+        
+        for article in articles {
+            if let source = article["source"] as? [String: Any] {
+                if let sourceId = source["id"] as? String {
+                    print(sourceId)
+                }
+                if let sourceName = source["name"] as? String {
+                    print(sourceName)
+                }
+            }
+            if let author = article["author"] as? String {
+                print(author)
+            }
+        }
     }
     
     func scrollToTop() {
