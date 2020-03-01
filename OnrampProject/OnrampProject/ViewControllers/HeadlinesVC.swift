@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class HeadlinesVC: UITableViewController {
+class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet var headlinesTableView: UITableView!
     
@@ -110,6 +111,14 @@ class HeadlinesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         headlinesTableView.deselectRow(at: indexPath, animated: true)
-        scrollToTop()
+        
+        if let url = URL(string: articles[indexPath.row].url!) {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            
+            present(vc, animated: true)
+        }
+        
+        // scrollToTop()
     }
 }
