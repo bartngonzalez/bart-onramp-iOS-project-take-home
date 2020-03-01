@@ -13,6 +13,7 @@
 		6030FC7C23FF0C7A007F0901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6030FC7A23FF0C7A007F0901 /* LaunchScreen.storyboard */; };
 		6030FC8723FF0C7A007F0901 /* OnrampProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC8623FF0C7A007F0901 /* OnrampProjectTests.swift */; };
 		6030FC9223FF0C7A007F0901 /* OnrampProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC9123FF0C7A007F0901 /* OnrampProjectUITests.swift */; };
+		CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FC635240B40DE00EBC678 /* ArticleVM.swift */; };
 		CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */; };
 		CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08F240A1C980038B55E /* Personal.storyboard */; };
 		CCBFA094240A1CD60038B55E /* Headlines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA093240A1CD60038B55E /* Headlines.storyboard */; };
@@ -53,6 +54,7 @@
 		6030FC8D23FF0C7A007F0901 /* OnrampProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnrampProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6030FC9123FF0C7A007F0901 /* OnrampProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnrampProjectUITests.swift; sourceTree = "<group>"; };
 		6030FC9323FF0C7A007F0901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC7FC635240B40DE00EBC678 /* ArticleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVM.swift; sourceTree = "<group>"; };
 		CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		CCBFA08F240A1C980038B55E /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
 		CCBFA093240A1CD60038B55E /* Headlines.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Headlines.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		CCBFA089240A12D30038B55E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CC7FC635240B40DE00EBC678 /* ArticleVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				CCBFA0A1240A35070038B55E /* ArticleTableViewCellVC.swift in Sources */,
 				CCBFA098240A2D6A0038B55E /* HeadlinesVC.swift in Sources */,
 				CCBFA096240A252D0038B55E /* Article.swift in Sources */,
+				CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6228UZW8QD;
 				INFOPLIST_FILE = OnrampProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -508,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6228UZW8QD;
 				INFOPLIST_FILE = OnrampProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -11,7 +11,7 @@ class HeadlinesVC: UITableViewController {
     
     @IBOutlet var headlinesTableView: UITableView!
     
-    var articles: [Article] = []
+    var articles: [ArticleVM] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,7 @@ class HeadlinesVC: UITableViewController {
         session.dataTask(with: request) { (data, response, error) in
             
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                print(response)
                 print("statusCode: \(response.statusCode)")
             } else {
                 print("newsAPI() - Faild")
@@ -52,12 +53,16 @@ class HeadlinesVC: UITableViewController {
             }
             
             if let data = data {
+                let decoder = JSONDecoder()
+                
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                    print(json)
-                    
-                    if let articles = json["articles"] as? [[String: Any]] {
-                        self.createArticles(articles: articles)
+                    let articleVM = try decoder.decode(ArticleVM.self, from: data)
+                    // print(articleVM.status)
+                    // print(articleVM.totalResults)
+                    self.articles = articleVM.articles?.map({return ArticleVM(article: $0)}) ?? []
+                    for x in self.articles {
+                        print(x.author)
+                        print(x.id)
                     }
                 } catch {
                     print(error)
@@ -68,19 +73,6 @@ class HeadlinesVC: UITableViewController {
     
     func createArticles(articles: [[String: Any]]) {
         
-        for article in articles {
-            if let source = article["source"] as? [String: Any] {
-                if let sourceId = source["id"] as? String {
-                    print(sourceId)
-                }
-                if let sourceName = source["name"] as? String {
-                    print(sourceName)
-                }
-            }
-            if let author = article["author"] as? String {
-                print(author)
-            }
-        }
     }
     
     func scrollToTop() {
