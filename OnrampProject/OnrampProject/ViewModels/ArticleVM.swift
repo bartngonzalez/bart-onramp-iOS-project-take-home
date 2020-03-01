@@ -7,10 +7,12 @@
 
 struct ArticleVM: Codable {
     
+    // MARK: JSON root
     var status: String?
     var totalResults: Int?
     var articles: [Article]?
     
+    // MARK: JSON root -> articles
     var id: String?
     var name: String?
     var title: String?
@@ -25,6 +27,7 @@ struct ArticleVM: Codable {
         case articles = "articles"
     }
     
+    // MARK: Decode json and set root's data
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.status = try container.decode(String.self, forKey: .status)
@@ -32,6 +35,7 @@ struct ArticleVM: Codable {
         self.articles = try container.decode([Article].self, forKey: .articles)
     }
     
+    // MARK: set article's data with respective data
     init(article: Article) {
         self.id = article.source.id ?? "id missing"
         self.name = article.source.name ?? "name missing"

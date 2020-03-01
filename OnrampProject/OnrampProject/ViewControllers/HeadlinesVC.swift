@@ -35,7 +35,7 @@ class HeadlinesVC: UITableViewController {
             "Content-Type": "application/json",
         ]
         
-        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=3&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
+        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=30&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -56,10 +56,10 @@ class HeadlinesVC: UITableViewController {
                 let decoder = JSONDecoder()
                 
                 do {
-                    let articleVM = try decoder.decode(ArticleVM.self, from: data)
-                    print(articleVM.status!)
-                    print(articleVM.totalResults!)
-                    self.articles = articleVM.articles?.map({return ArticleVM(article: $0)}) ?? []
+                    let json = try decoder.decode(ArticleVM.self, from: data)
+                    print(json.status!)
+                    print(json.totalResults!)
+                    self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
                     for x in self.articles {
                         print(x.id!)
                         print(x.name!)
@@ -99,7 +99,10 @@ class HeadlinesVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let article = articles[indexPath.row]
         let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
+        
+        cell.setArticles(article: article)
         
         return cell
     }
