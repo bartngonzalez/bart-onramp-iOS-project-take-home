@@ -17,5 +17,5 @@ struct Article: Codable {
     let title: String?
     let url: String?
     let urlToImage: String?
-    let publishedAt: String
+    let publishedAt: String?
 }

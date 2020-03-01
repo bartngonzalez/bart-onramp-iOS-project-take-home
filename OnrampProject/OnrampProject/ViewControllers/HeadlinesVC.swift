@@ -57,22 +57,27 @@ class HeadlinesVC: UITableViewController {
                 
                 do {
                     let articleVM = try decoder.decode(ArticleVM.self, from: data)
-                    // print(articleVM.status)
-                    // print(articleVM.totalResults)
+                    print(articleVM.status!)
+                    print(articleVM.totalResults!)
                     self.articles = articleVM.articles?.map({return ArticleVM(article: $0)}) ?? []
                     for x in self.articles {
-                        print(x.author)
-                        print(x.id)
+                        print(x.id!)
+                        print(x.name!)
+                        print(x.author!)
+                        print(x.title!)
+                        print(x.url!)
+                        print(x.urlToImage!)
+                        print(x.publishedAt!)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.headlinesTableView.reloadData()
                     }
                 } catch {
                     print(error)
                 }
             }
         }.resume()
-    }
-    
-    func createArticles(articles: [[String: Any]]) {
-        
     }
     
     func scrollToTop() {
@@ -89,7 +94,7 @@ class HeadlinesVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 30
+        return self.articles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

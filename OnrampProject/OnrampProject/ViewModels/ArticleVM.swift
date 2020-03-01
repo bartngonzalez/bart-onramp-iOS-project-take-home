@@ -11,8 +11,13 @@ struct ArticleVM: Codable {
     var totalResults: Int?
     var articles: [Article]?
     
-    var author: String?
     var id: String?
+    var name: String?
+    var title: String?
+    var url: String?
+    var author: String?
+    var urlToImage: String?
+    var publishedAt: String?
     
     enum CodingKeys: String, CodingKey {
         case status = "status"
@@ -28,7 +33,12 @@ struct ArticleVM: Codable {
     }
     
     init(article: Article) {
-        self.id = article.source.id
-        self.author = article.author
+        self.id = article.source.id ?? "id missing"
+        self.name = article.source.name ?? "name missing"
+        self.author = article.author ?? "author missing"
+        self.title = article.title ?? "title missing"
+        self.url = article.url ?? "url missing"
+        self.urlToImage = article.urlToImage ?? "urlToImage missing"
+        self.publishedAt = article.publishedAt ?? "publishedAt missing"
     }
 }
