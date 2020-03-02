@@ -24,6 +24,8 @@
 		CCBFA09A240A2E900038B55E /* PersonalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFA099240A2E900038B55E /* PersonalVC.swift */; };
 		CCBFA09F240A2FA60038B55E /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA09D240A2FA60038B55E /* ArticleTableViewCell.xib */; };
 		CCBFA0A1240A35070038B55E /* ArticleTableViewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFA0A0240A35070038B55E /* ArticleTableViewCellVC.swift */; };
+		CCFFEDF4240D1415005E0BF0 /* TopicCollectionViewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFFEDF2240D1415005E0BF0 /* TopicCollectionViewCellVC.swift */; };
+		CCFFEDF5240D1415005E0BF0 /* TopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFFEDF3240D1415005E0BF0 /* TopicCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		CCBFA099240A2E900038B55E /* PersonalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalVC.swift; sourceTree = "<group>"; };
 		CCBFA09D240A2FA60038B55E /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		CCBFA0A0240A35070038B55E /* ArticleTableViewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCellVC.swift; sourceTree = "<group>"; };
+		CCFFEDF2240D1415005E0BF0 /* TopicCollectionViewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCollectionViewCellVC.swift; sourceTree = "<group>"; };
+		CCFFEDF3240D1415005E0BF0 /* TopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,10 +191,12 @@
 		CCBFA09B240A2EFC0038B55E /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				CCBFA09D240A2FA60038B55E /* ArticleTableViewCell.xib */,
 				CCBFA0A0240A35070038B55E /* ArticleTableViewCellVC.swift */,
+				CCBFA09D240A2FA60038B55E /* ArticleTableViewCell.xib */,
 				CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */,
 				CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */,
+				CCFFEDF2240D1415005E0BF0 /* TopicCollectionViewCellVC.swift */,
+				CCFFEDF3240D1415005E0BF0 /* TopicCollectionViewCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 			files = (
 				CCBFA094240A1CD60038B55E /* Headlines.storyboard in Resources */,
 				CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */,
+				CCFFEDF5240D1415005E0BF0 /* TopicCollectionViewCell.xib in Resources */,
 				6030FC7C23FF0C7A007F0901 /* LaunchScreen.storyboard in Resources */,
 				CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */,
 				CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */,
@@ -337,6 +344,7 @@
 				CCBFA098240A2D6A0038B55E /* HeadlinesVC.swift in Sources */,
 				CCBFA096240A252D0038B55E /* Article.swift in Sources */,
 				CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */,
+				CCFFEDF4240D1415005E0BF0 /* TopicCollectionViewCellVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

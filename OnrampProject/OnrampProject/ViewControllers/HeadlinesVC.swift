@@ -20,6 +20,8 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         print("HeadlinesVC: viewDidLoad()")
         
+        self.title = "Headlines"
+        
         // MARK: UITableView's
         headlinesTableView.delegate = self
         headlinesTableView.dataSource = self
