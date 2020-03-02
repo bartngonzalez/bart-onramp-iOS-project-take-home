@@ -22,7 +22,6 @@ class ArticleTableViewCellVC: UITableViewCell {
     
     // MARK: function allows the HeadlinesVC set the IBOutlet's with the articles located in HeadlinesVC
     func setArticles(article: ArticleVM) {
-        // TODO: Create a extenssion to download image from url and assign to articleImageView
         self.articleAuthorNameLabel.text = article.author
         self.articleTitleLabel.text = article.title
         self.articleSourceLabel.text = article.name

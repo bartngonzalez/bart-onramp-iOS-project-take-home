@@ -5,6 +5,8 @@
 //  Created by Bart on 2/28/20.
 //
 
+import Foundation
+
 struct Article: Codable {
     
     // MARK: Codable: access Source object data
@@ -19,5 +21,5 @@ struct Article: Codable {
     let title: String?
     let url: String?
     let urlToImage: String?
-    let publishedAt: String?
+    let publishedAt: Date
 }

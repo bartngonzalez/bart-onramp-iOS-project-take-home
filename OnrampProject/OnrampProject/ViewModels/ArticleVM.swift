@@ -5,6 +5,8 @@
 //  Created by Bart on 2/29/20.
 //
 
+import Foundation
+
 struct ArticleVM: Codable {
     
     // MARK: JSON root
@@ -25,6 +27,7 @@ struct ArticleVM: Codable {
         case status = "status"
         case totalResults = "totalResults"
         case articles = "articles"
+        case publishedAt = "publishedAt"
     }
     
     // MARK: Decode json and set root's data
@@ -43,6 +46,20 @@ struct ArticleVM: Codable {
         self.title = article.title ?? "title missing"
         self.url = article.url ?? "url missing"
         self.urlToImage = article.urlToImage ?? "urlToImage missing"
-        self.publishedAt = article.publishedAt ?? "publishedAt missing"
+        self.publishedAt = dateFormatter(publishedAt: article.publishedAt)
+    }
+    
+    // TODO: dateFormatter should consider seconds and minutes in case the time is less than an hour
+    func dateFormatter(publishedAt: Date) -> String {
+        let currentDate = Date()
+        let hourDifference = Calendar.current.dateComponents([.hour], from: publishedAt, to: currentDate)
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = .hour
+        
+        if Int(formatter.string(from: hourDifference)!)! > 24 {
+            return "24+ hours ago"
+        }
+        
+        return "\(formatter.string(from: hourDifference)!) hours ago"
     }
 }
