@@ -20,7 +20,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         print("HeadlinesVC: viewDidLoad()")
         
-        // UITableView's
+        // MARK: UITableView's
         headlinesTableView.delegate = self
         headlinesTableView.dataSource = self
         
@@ -33,6 +33,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         newsAPI()
     }
     
+    // TODO: Should move newsAPI a Networking.swift file
     func newsAPI() {
         
         print("newsAPI()")
@@ -94,7 +95,9 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
-    
+}
+
+extension HeadlinesVC {
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         if responseStatusCode == 200 {
