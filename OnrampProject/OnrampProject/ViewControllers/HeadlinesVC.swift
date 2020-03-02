@@ -36,7 +36,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
             "Content-Type": "application/json",
         ]
         
-        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=70&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
+        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -105,6 +105,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
         
         cell.setArticles(article: article)
+        cell.setImageFromURL(url: article.urlToImage!)
         
         return cell
     }
