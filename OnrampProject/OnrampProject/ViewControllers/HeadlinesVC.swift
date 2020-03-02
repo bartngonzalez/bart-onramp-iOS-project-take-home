@@ -12,6 +12,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet var headlinesTableView: UITableView!
     
+    var responseStatusCode: Int = 0
     var articles: [ArticleVM] = []
     
     override func viewDidLoad() {
@@ -19,10 +20,14 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         print("HeadlinesVC: viewDidLoad()")
         
+        // UITableView's
         headlinesTableView.delegate = self
         headlinesTableView.dataSource = self
         
+        // MARK: XIB's
+        let topicsTableViewCellXIB = UINib(nibName: "TopicsTableViewCell", bundle: nil)
         let articleTableViewCellXIB = UINib(nibName: "ArticleTableViewCell", bundle: nil)
+        headlinesTableView.register(topicsTableViewCellXIB, forCellReuseIdentifier: "topicsCellXIB")
         headlinesTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
         
         newsAPI()
@@ -48,6 +53,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 print(response)
                 print("statusCode: \(response.statusCode)")
+                self.responseStatusCode = response.statusCode
             } else {
                 print("newsAPI() - Faild")
                 return
@@ -91,36 +97,57 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        if responseStatusCode == 200 {
+            return 2
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.articles.count
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return self.articles.count
+        }
+        return 0
     }
     
+    // MARK: Set nib's to their respective sections
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let article = articles[indexPath.row]
-        let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
+        if indexPath.section == 0 {
+            let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "topicsCellXIB") as! TopicsTableViewCellVC
+            
+            return cell
+        } else if indexPath.section == 1 {
+            let article = articles[indexPath.row]
+            let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
+            
+            cell.setArticles(article: article)
+            cell.setImageFromURL(url: article.urlToImage!)
+            
+            return cell
+        }
         
-        cell.setArticles(article: article)
-        cell.setImageFromURL(url: article.urlToImage!)
+        let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
         
         return cell
     }
     
+    // MARK: Only open SafariVC if user selects cell within section 1 (articles section)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("deselectRow(at: indexPath, animated: true)")
         
         headlinesTableView.deselectRow(at: indexPath, animated: true)
         
-        if let url = URL(string: articles[indexPath.row].url!) {
-            let vc = SFSafariViewController(url: url)
-            vc.delegate = self
-            
-            present(vc, animated: true)
+        if indexPath.section == 1 {
+            if let url = URL(string: articles[indexPath.row].url!) {
+                let vc = SFSafariViewController(url: url)
+                vc.delegate = self
+                present(vc, animated: true)
+            }
         }
-        
-        // scrollToTop()
     }
 }

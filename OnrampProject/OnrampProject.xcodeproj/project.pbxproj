@@ -13,6 +13,8 @@
 		6030FC7C23FF0C7A007F0901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6030FC7A23FF0C7A007F0901 /* LaunchScreen.storyboard */; };
 		6030FC8723FF0C7A007F0901 /* OnrampProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC8623FF0C7A007F0901 /* OnrampProjectTests.swift */; };
 		6030FC9223FF0C7A007F0901 /* OnrampProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC9123FF0C7A007F0901 /* OnrampProjectUITests.swift */; };
+		CC0AD1CA240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */; };
+		CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */; };
 		CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FC635240B40DE00EBC678 /* ArticleVM.swift */; };
 		CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */; };
 		CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08F240A1C980038B55E /* Personal.storyboard */; };
@@ -54,6 +56,8 @@
 		6030FC8D23FF0C7A007F0901 /* OnrampProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnrampProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6030FC9123FF0C7A007F0901 /* OnrampProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnrampProjectUITests.swift; sourceTree = "<group>"; };
 		6030FC9323FF0C7A007F0901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCellVC.swift; sourceTree = "<group>"; };
+		CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
 		CC7FC635240B40DE00EBC678 /* ArticleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVM.swift; sourceTree = "<group>"; };
 		CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		CCBFA08F240A1C980038B55E /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 			children = (
 				CCBFA09D240A2FA60038B55E /* ArticleTableViewCell.xib */,
 				CCBFA0A0240A35070038B55E /* ArticleTableViewCellVC.swift */,
+				CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */,
+				CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */,
 				6030FC7C23FF0C7A007F0901 /* LaunchScreen.storyboard in Resources */,
 				CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */,
+				CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */,
 				CCBFA09F240A2FA60038B55E /* ArticleTableViewCell.xib in Resources */,
 				6030FC7923FF0C7A007F0901 /* Assets.xcassets in Resources */,
 			);
@@ -323,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6030FC7023FF0C79007F0901 /* AppDelegate.swift in Sources */,
+				CC0AD1CA240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift in Sources */,
 				6030FC7223FF0C79007F0901 /* SceneDelegate.swift in Sources */,
 				CCBFA09A240A2E900038B55E /* PersonalVC.swift in Sources */,
 				CCBFA0A1240A35070038B55E /* ArticleTableViewCellVC.swift in Sources */,
