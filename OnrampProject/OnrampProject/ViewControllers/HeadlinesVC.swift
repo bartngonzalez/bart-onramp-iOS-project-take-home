@@ -44,7 +44,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
             "Content-Type": "application/json",
         ]
         
-        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
+        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d")!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers

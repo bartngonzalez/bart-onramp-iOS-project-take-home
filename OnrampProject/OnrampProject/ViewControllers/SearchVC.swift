@@ -32,12 +32,12 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
         searchTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
     }
     
-    // TODO: Bug when user enters a space
+    // MARK: SearchBar calls searchNewsAPI(input: String) with users input. Also checks for spaces and replaces it with "" since the API cannot search for a string with a space.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         print(searchText)
         
-        searchNewsAPI(input: searchText)
+        searchNewsAPI(input: searchText.replacingOccurrences(of: " ", with: ""))
     }
     
     func searchNewsAPI(input: String) {
@@ -48,8 +48,7 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
             "Content-Type": "application/json"
         ]
         
-        // TODO: Input is nil when user enters a space
-        var request = URLRequest(url: URL(string: "http://newsapi.org/v2/everything?q=\(input)&pageSize=30&apiKey=c87414d33d46453e8ffb0fa7e5648cd7")!)
+        var request = URLRequest(url: URL(string: "http://newsapi.org/v2/everything?q=\(input)&pageSize=30&apiKey=57fd062826eb4196b020535fe631778d")!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
