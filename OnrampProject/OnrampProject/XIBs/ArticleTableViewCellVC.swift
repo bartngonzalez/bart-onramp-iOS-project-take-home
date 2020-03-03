@@ -45,7 +45,7 @@ class ArticleTableViewCellVC: UITableViewCell {
                     print(response)
                     print("statusCode: \(response.statusCode)")
                 } else {
-                    print(error!)
+                    print("setImageFromURL(url: String) - FAILD")
                     /*
                     DispatchQueue.main.async {
                         self.articleImageView.image = placeHolderImage

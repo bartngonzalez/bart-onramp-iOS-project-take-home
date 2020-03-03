@@ -58,7 +58,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
                 print("statusCode: \(response.statusCode)")
                 self.responseStatusCode = response.statusCode
             } else {
-                print("newsAPI() - Faild")
+                print("newsAPI() - FAILD")
                 return
             }
             
@@ -97,7 +97,6 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
-    
     
     @IBAction func presentSearchVC(_ sender: Any) {
         
