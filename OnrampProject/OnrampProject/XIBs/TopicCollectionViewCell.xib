@@ -11,26 +11,53 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topicCollectionViewCellXIB" id="gTV-IL-0wX" customClass="TopicCollectionViewCellVC" customModule="OnrampProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAh-Fb-X0j">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="REh-Rg-zPc">
+                                <rect key="frame" x="8.5" y="10.5" width="83" height="49.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PCo-09-Nus">
+                                        <rect key="frame" x="26.5" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="FPi-iZ-iXX"/>
+                                            <constraint firstAttribute="height" constant="30" id="pHO-ET-EDO"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TECHNOLOGY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XA-Bi-lgs">
+                                        <rect key="frame" x="0.0" y="35" width="83" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="Iwu-1w-fIC"/>
+                            <constraint firstAttribute="width" constant="100" id="Vrm-pv-OCm"/>
+                            <constraint firstItem="REh-Rg-zPc" firstAttribute="centerX" secondItem="dAh-Fb-X0j" secondAttribute="centerX" id="YJV-dZ-YVA"/>
+                            <constraint firstItem="REh-Rg-zPc" firstAttribute="centerY" secondItem="dAh-Fb-X0j" secondAttribute="centerY" id="ogl-Rg-9uf"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="dAh-Fb-X0j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RBk-8J-kmi"/>
-                <constraint firstItem="dAh-Fb-X0j" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="i0V-VI-JVc"/>
-                <constraint firstAttribute="trailing" secondItem="dAh-Fb-X0j" secondAttribute="trailing" id="ojt-Y7-LBX"/>
-                <constraint firstAttribute="bottom" secondItem="dAh-Fb-X0j" secondAttribute="bottom" id="rGX-6h-VAq"/>
+                <constraint firstItem="dAh-Fb-X0j" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="5us-AV-z5b"/>
+                <constraint firstItem="dAh-Fb-X0j" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="XoQ-Yy-jSr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <point key="canvasLocation" x="131.8840579710145" y="81.696428571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="search-icon" width="80" height="80"/>
+    </resources>
 </document>

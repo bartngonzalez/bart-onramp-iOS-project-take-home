@@ -22,11 +22,11 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         self.title = "Headlines"
         
-        // MARK: UITableView's
+        // UITableView's
         headlinesTableView.delegate = self
         headlinesTableView.dataSource = self
         
-        // MARK: XIB's
+        // XIB's
         let topicsTableViewCellXIB = UINib(nibName: "TopicsTableViewCell", bundle: nil)
         let articleTableViewCellXIB = UINib(nibName: "ArticleTableViewCell", bundle: nil)
         headlinesTableView.register(topicsTableViewCellXIB, forCellReuseIdentifier: "topicsCellXIB")

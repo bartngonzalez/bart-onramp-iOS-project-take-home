@@ -7,14 +7,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HeadlinesVC-->
+        <!--Headlines-->
         <scene sceneID="vfm-KV-WIK">
             <objects>
                 <tableViewController id="kt4-Na-ITn" customClass="HeadlinesVC" customModule="OnrampProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LdO-35-cLf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.55655080079999997" green="0.1806879938" blue="0.16880348319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g5C-UZ-V82">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -30,7 +30,43 @@
                             <outlet property="delegate" destination="kt4-Na-ITn" id="ZLJ-Hj-jO6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VGB-Td-9T7"/>
+                    <navigationItem key="navigationItem" title="Headlines" id="VGB-Td-9T7">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="y9t-pQ-ckI">
+                            <view key="customView" contentMode="scaleToFill" id="siK-vp-628">
+                                <rect key="frame" x="20" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-ns-6lq">
+                                        <rect key="frame" x="0.0" y="1.5" width="30" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-q3-vMJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPq-oT-ha1">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="WmT-q3-vMJ" secondAttribute="trailing" id="1Vo-UD-f9B"/>
+                                            <constraint firstItem="WPq-oT-ha1" firstAttribute="leading" secondItem="uO8-ns-6lq" secondAttribute="leading" id="4mw-dC-4p9"/>
+                                            <constraint firstItem="WmT-q3-vMJ" firstAttribute="leading" secondItem="uO8-ns-6lq" secondAttribute="leading" id="54y-UY-PiS"/>
+                                            <constraint firstAttribute="bottom" secondItem="WPq-oT-ha1" secondAttribute="bottom" id="6Bf-g3-7dg"/>
+                                            <constraint firstAttribute="trailing" secondItem="WPq-oT-ha1" secondAttribute="trailing" id="7P5-Dp-H7D"/>
+                                            <constraint firstAttribute="width" constant="30" id="L74-ph-k1O"/>
+                                            <constraint firstItem="WPq-oT-ha1" firstAttribute="top" secondItem="uO8-ns-6lq" secondAttribute="top" id="bgA-2i-Ch2"/>
+                                            <constraint firstAttribute="bottom" secondItem="WmT-q3-vMJ" secondAttribute="bottom" id="j0h-Cx-QWC"/>
+                                            <constraint firstAttribute="height" constant="30" id="jk2-x6-Pm3"/>
+                                            <constraint firstItem="WmT-q3-vMJ" firstAttribute="top" secondItem="uO8-ns-6lq" secondAttribute="top" id="uaH-vk-jTp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uO8-ns-6lq" firstAttribute="centerY" secondItem="siK-vp-628" secondAttribute="centerY" id="3MB-aq-9FK"/>
+                                    <constraint firstItem="uO8-ns-6lq" firstAttribute="leading" secondItem="siK-vp-628" secondAttribute="leading" id="HHG-Z5-aMu"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="headlinesTableView" destination="LdO-35-cLf" id="kAi-ce-Xff"/>
                     </connections>
@@ -49,6 +85,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rzV-bJ-xWh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.27450980392156865" green="0.25490196078431371" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -60,4 +100,7 @@
             <point key="canvasLocation" x="27.536231884057973" y="98.4375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search-icon" width="80" height="80"/>
+    </resources>
 </document>

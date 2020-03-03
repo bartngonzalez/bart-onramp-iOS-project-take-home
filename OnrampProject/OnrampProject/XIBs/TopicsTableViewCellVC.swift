@@ -35,6 +35,11 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("collectionView(didSelectItemAt)")
+        print("indexPath: \(indexPath)")
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
