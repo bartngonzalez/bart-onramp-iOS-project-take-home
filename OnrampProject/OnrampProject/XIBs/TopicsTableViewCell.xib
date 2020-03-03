@@ -20,9 +20,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFU-2r-Qxb">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="100"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZXO-WN-dsh">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZXO-WN-dsh">
                                 <rect key="frame" x="10" y="0.0" width="480" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.27450980392156865" green="0.25490196078431371" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nHq-W8-YMm">
                                     <size key="itemSize" width="100" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,6 +31,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                         </subviews>
+                        <color key="backgroundColor" red="0.27450980392156865" green="0.25490196078431371" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ZXO-WN-dsh" secondAttribute="bottom" id="6pH-6w-RET"/>
                             <constraint firstAttribute="height" constant="100" id="Nt7-nu-CC6"/>
