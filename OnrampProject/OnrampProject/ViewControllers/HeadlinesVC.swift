@@ -97,6 +97,17 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         
         headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
+    
+    
+    @IBAction func presentSearchVC(_ sender: Any) {
+        
+        print("presentSearchVC")
+        
+        let storyboard = UIStoryboard(name: "Search", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SearchSB") as! SearchVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HeadlinesVC {

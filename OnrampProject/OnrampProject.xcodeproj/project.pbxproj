@@ -15,6 +15,8 @@
 		6030FC9223FF0C7A007F0901 /* OnrampProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030FC9123FF0C7A007F0901 /* OnrampProjectUITests.swift */; };
 		CC0AD1CA240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */; };
 		CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */; };
+		CC458C3A240E02A40084ABCA /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC458C39240E02A30084ABCA /* Search.storyboard */; };
+		CC458C3C240E02B50084ABCA /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC458C3B240E02B50084ABCA /* SearchVC.swift */; };
 		CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FC635240B40DE00EBC678 /* ArticleVM.swift */; };
 		CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */; };
 		CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08F240A1C980038B55E /* Personal.storyboard */; };
@@ -60,6 +62,8 @@
 		6030FC9323FF0C7A007F0901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0AD1C8240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCellVC.swift; sourceTree = "<group>"; };
 		CC0AD1C9240CFD1C00B1CF45 /* TopicsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsTableViewCell.xib; sourceTree = "<group>"; };
+		CC458C39240E02A30084ABCA /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		CC458C3B240E02B50084ABCA /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		CC7FC635240B40DE00EBC678 /* ArticleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVM.swift; sourceTree = "<group>"; };
 		CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		CCBFA08F240A1C980038B55E /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
@@ -164,8 +168,9 @@
 		CCBFA088240A12B80038B55E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CCBFA097240A2D6A0038B55E /* HeadlinesVC.swift */,
 				CCBFA099240A2E900038B55E /* PersonalVC.swift */,
+				CCBFA097240A2D6A0038B55E /* HeadlinesVC.swift */,
+				CC458C3B240E02B50084ABCA /* SearchVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */,
 				CCBFA08F240A1C980038B55E /* Personal.storyboard */,
 				CCBFA093240A1CD60038B55E /* Headlines.storyboard */,
+				CC458C39240E02A30084ABCA /* Search.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 				CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */,
 				CCFFEDF5240D1415005E0BF0 /* TopicCollectionViewCell.xib in Resources */,
 				6030FC7C23FF0C7A007F0901 /* LaunchScreen.storyboard in Resources */,
+				CC458C3A240E02A40084ABCA /* Search.storyboard in Resources */,
 				CCBFA090240A1C980038B55E /* Personal.storyboard in Resources */,
 				CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */,
 				CCBFA09F240A2FA60038B55E /* ArticleTableViewCell.xib in Resources */,
@@ -342,6 +349,7 @@
 				CCBFA09A240A2E900038B55E /* PersonalVC.swift in Sources */,
 				CCBFA0A1240A35070038B55E /* ArticleTableViewCellVC.swift in Sources */,
 				CCBFA098240A2D6A0038B55E /* HeadlinesVC.swift in Sources */,
+				CC458C3C240E02B50084ABCA /* SearchVC.swift in Sources */,
 				CCBFA096240A252D0038B55E /* Article.swift in Sources */,
 				CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */,
 				CCFFEDF4240D1415005E0BF0 /* TopicCollectionViewCellVC.swift in Sources */,

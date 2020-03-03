@@ -36,33 +36,27 @@
                                 <rect key="frame" x="20" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-ns-6lq">
-                                        <rect key="frame" x="0.0" y="1.5" width="30" height="30"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="WmT-q3-vMJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPq-oT-ha1">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            </button>
-                                        </subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="cGF-jW-WKG">
+                                        <rect key="frame" x="31" y="1.5" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="WmT-q3-vMJ" secondAttribute="trailing" id="1Vo-UD-f9B"/>
-                                            <constraint firstItem="WPq-oT-ha1" firstAttribute="leading" secondItem="uO8-ns-6lq" secondAttribute="leading" id="4mw-dC-4p9"/>
-                                            <constraint firstItem="WmT-q3-vMJ" firstAttribute="leading" secondItem="uO8-ns-6lq" secondAttribute="leading" id="54y-UY-PiS"/>
-                                            <constraint firstAttribute="bottom" secondItem="WPq-oT-ha1" secondAttribute="bottom" id="6Bf-g3-7dg"/>
-                                            <constraint firstAttribute="trailing" secondItem="WPq-oT-ha1" secondAttribute="trailing" id="7P5-Dp-H7D"/>
-                                            <constraint firstAttribute="width" constant="30" id="L74-ph-k1O"/>
-                                            <constraint firstItem="WPq-oT-ha1" firstAttribute="top" secondItem="uO8-ns-6lq" secondAttribute="top" id="bgA-2i-Ch2"/>
-                                            <constraint firstAttribute="bottom" secondItem="WmT-q3-vMJ" secondAttribute="bottom" id="j0h-Cx-QWC"/>
-                                            <constraint firstAttribute="height" constant="30" id="jk2-x6-Pm3"/>
-                                            <constraint firstItem="WmT-q3-vMJ" firstAttribute="top" secondItem="uO8-ns-6lq" secondAttribute="top" id="uaH-vk-jTp"/>
+                                            <constraint firstAttribute="height" constant="30" id="IQm-cY-0kP"/>
+                                            <constraint firstAttribute="width" constant="30" id="RoA-L8-ltw"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPq-oT-ha1">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="33"/>
+                                        <connections>
+                                            <action selector="presentSearchVC:" destination="kt4-Na-ITn" eventType="touchUpInside" id="lCb-3B-mpR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="uO8-ns-6lq" firstAttribute="centerY" secondItem="siK-vp-628" secondAttribute="centerY" id="3MB-aq-9FK"/>
-                                    <constraint firstItem="uO8-ns-6lq" firstAttribute="leading" secondItem="siK-vp-628" secondAttribute="leading" id="HHG-Z5-aMu"/>
+                                    <constraint firstItem="cGF-jW-WKG" firstAttribute="centerY" secondItem="siK-vp-628" secondAttribute="centerY" id="G5f-kw-w5b"/>
+                                    <constraint firstItem="cGF-jW-WKG" firstAttribute="centerX" secondItem="siK-vp-628" secondAttribute="centerX" id="Mhs-xT-xh9"/>
+                                    <constraint firstAttribute="trailing" secondItem="WPq-oT-ha1" secondAttribute="trailing" id="NkF-Wh-iOL"/>
+                                    <constraint firstAttribute="bottom" secondItem="WPq-oT-ha1" secondAttribute="bottom" id="NmD-c0-z7T"/>
+                                    <constraint firstItem="WPq-oT-ha1" firstAttribute="top" secondItem="siK-vp-628" secondAttribute="top" id="Vfz-Xb-oTB"/>
+                                    <constraint firstItem="WPq-oT-ha1" firstAttribute="leading" secondItem="siK-vp-628" secondAttribute="leading" id="qs8-2h-Ip0"/>
                                 </constraints>
                             </view>
                         </barButtonItem>
