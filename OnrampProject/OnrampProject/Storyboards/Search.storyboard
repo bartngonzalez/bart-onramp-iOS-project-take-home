@@ -36,6 +36,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="l5s-jq-wqb"/>
+                    <connections>
+                        <outlet property="searchBar" destination="9Mw-0c-FPb" id="yP8-NN-P0i"/>
+                        <outlet property="searchTableView" destination="XBs-Xe-fPa" id="k6d-fc-LhW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnH-Ue-QyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
