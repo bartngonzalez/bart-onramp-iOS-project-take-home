@@ -20,6 +20,8 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
         
         print("SearchVC: viewDidLoad()")
         
+        self.title = "Search"
+        
         // UISearchBar
         searchBar.delegate = self
         

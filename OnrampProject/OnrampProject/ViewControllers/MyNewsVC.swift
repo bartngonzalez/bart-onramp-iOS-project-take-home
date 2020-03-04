@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class MyNewsVC: UITableViewController, CLLocationManagerDelegate {
+class MyNewsVC: UITableViewController {
     
     let locationManager = CLLocationManager()
     var latitude: String = "0.000000"
@@ -18,6 +18,8 @@ class MyNewsVC: UITableViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         print("MyNewsVC: viewDidLoad()")
+        
+        self.title = "My News"
         
         locationManager.delegate = self
         checkLocationAuthorization()
@@ -50,12 +52,12 @@ class MyNewsVC: UITableViewController, CLLocationManagerDelegate {
             print("default")
         }
     }
-    
+}
+
+extension MyNewsVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         print("locationManager(): didUpdateLocations")
-        
-        locationManager.stopUpdatingLocation()
         
         latitude = String(format: "%f", locationManager.location?.coordinate.latitude ?? "0.000000")
         longitude = String(format: "%f", locationManager.location?.coordinate.longitude ?? "0.000000")
