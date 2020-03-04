@@ -8,10 +8,16 @@
 import UIKit
 
 class TopicCollectionViewCellVC: UICollectionViewCell {
-
+    
+    @IBOutlet weak var topicImage: UIImageView!
+    @IBOutlet weak var topicTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func configCell(topic: String) {
+        self.topicTitle.text = topic
+    }
 }

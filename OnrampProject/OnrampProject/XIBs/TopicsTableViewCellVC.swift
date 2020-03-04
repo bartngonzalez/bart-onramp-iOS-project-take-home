@@ -11,6 +11,8 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
 
     @IBOutlet weak var topicsCollectionView: UICollectionView!
     
+    let topics: [String] = ["BUSINESS", "TECHNOLOGY", "SPORTS", "SCIENCE", "HEALTH"]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,11 +29,14 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        topics.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = topicsCollectionView.dequeueReusableCell(withReuseIdentifier: "topicCollectionViewCellXIB", for: indexPath) as! TopicCollectionViewCellVC
+        let topic = topics[indexPath.row]
+        
+        cell.configCell(topic: topic)
         
         return cell
     }

@@ -54,6 +54,10 @@
                 <constraint firstItem="dAh-Fb-X0j" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="XoQ-Yy-jSr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="topicImage" destination="PCo-09-Nus" id="2q9-N6-NIm"/>
+                <outlet property="topicTitle" destination="9XA-Bi-lgs" id="alw-D6-DoV"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="81.696428571428569"/>
         </collectionViewCell>
     </objects>
