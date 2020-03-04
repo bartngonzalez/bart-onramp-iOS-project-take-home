@@ -11,6 +11,7 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
 
     @IBOutlet weak var topicsCollectionView: UICollectionView!
     
+    var referenceHeadlinesVC: HeadlinesVC!
     let topics: [String] = ["BUSINESS", "TECHNOLOGY", "SPORTS", "SCIENCE", "HEALTH"]
     
     override func awakeFromNib() {
@@ -44,6 +45,8 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("collectionView(didSelectItemAt)")
         print("indexPath: \(indexPath)")
+        
+        referenceHeadlinesVC.newsAPI(topic: topics[indexPath.row])
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

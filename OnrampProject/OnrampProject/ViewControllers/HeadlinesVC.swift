@@ -32,11 +32,11 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         headlinesTableView.register(topicsTableViewCellXIB, forCellReuseIdentifier: "topicsCellXIB")
         headlinesTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
         
-        newsAPI()
+        newsAPI(topic: "BUSINESS")
     }
     
     // TODO: Should move newsAPI a Networking.swift file
-    func newsAPI() {
+    func newsAPI(topic: String) {
         
         print("newsAPI()")
         
@@ -44,7 +44,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
             "Content-Type": "application/json",
         ]
         
-        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d")!)
+        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=\(topic)&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d")!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -133,6 +133,8 @@ extension HeadlinesVC {
         
         if indexPath.section == 0 {
             let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "topicsCellXIB") as! TopicsTableViewCellVC
+            
+            cell.referenceHeadlinesVC = self
             
             return cell
         } else if indexPath.section == 1 {

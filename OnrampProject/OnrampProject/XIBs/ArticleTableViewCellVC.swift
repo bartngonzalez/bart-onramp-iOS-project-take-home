@@ -17,7 +17,8 @@ class ArticleTableViewCellVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.articleImageView.layer.cornerRadius = 7
     }
     
     // MARK: function allows the HeadlinesVC set the IBOutlet's with the articles located in HeadlinesVC

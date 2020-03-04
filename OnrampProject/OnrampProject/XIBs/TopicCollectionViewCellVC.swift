@@ -14,10 +14,12 @@ class TopicCollectionViewCellVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.layer.cornerRadius = 7
     }
     
     func configCell(topic: String) {
+        self.topicImage.image = UIImage(named: "\(topic.lowercased())-icon")
         self.topicTitle.text = topic
     }
 }
