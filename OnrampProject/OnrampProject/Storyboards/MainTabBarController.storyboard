@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-954" y="-228"/>
         </scene>
-        <!--Personal-->
+        <!--MyNews-->
         <scene sceneID="73V-rI-63b">
             <objects>
-                <viewControllerPlaceholder storyboardName="Personal" id="iXZ-2m-sfi" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MyNews" id="iXZ-2m-sfi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="MN6-Pu-oc4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcS-qd-PaE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
