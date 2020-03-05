@@ -15,7 +15,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     var responseStatusCode: Int = 0
     var articles: [ArticleVM] = []
     let networking = Networking()
-    var topicURL: String = "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d"
+    var topicURL: String = "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey="
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,62 +53,6 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
                 self.responseStatusCode = 0
             }
         }
-    }
-    
-    // TODO: Should move newsAPI a Networking.swift file
-    func newsAPI(topic: String) {
-        
-        print("newsAPI()")
-        
-        let headers = [
-            "Content-Type": "application/json",
-        ]
-        
-        var request = URLRequest(url: URL(string: "https://newsapi.org/v2/top-headlines?category=\(topic)&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d")!)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: request) { (data, response, error) in
-            
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print(response)
-                print("statusCode: \(response.statusCode)")
-                self.responseStatusCode = response.statusCode
-            } else {
-                print("newsAPI(topic: String) - FAILD")
-                return
-            }
-            
-            if let data = data {
-                let decoder = JSONDecoder()
-                
-                do {
-                    decoder.dateDecodingStrategy = .iso8601
-                    let json = try decoder.decode(ArticleVM.self, from: data)
-                    print(json.status!)
-                    print(json.totalResults!)
-                    self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
-                    for x in self.articles {
-                        print(x.id!)
-                        print(x.name!)
-                        print(x.author!)
-                        print(x.title!)
-                        print(x.url!)
-                        print(x.urlToImage!)
-                        print(x.publishedAt!)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.headlinesTableView.reloadData()
-                    }
-                } catch {
-                    print(error)
-                }
-            }
-        }.resume()
     }
     
     func scrollToTop() {

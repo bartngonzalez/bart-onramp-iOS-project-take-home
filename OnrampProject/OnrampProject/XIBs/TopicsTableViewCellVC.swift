@@ -53,9 +53,9 @@ extension TopicsTableViewCellVC: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("collectionView(didSelectItemAt)")
-        print("indexPath: \(indexPath)")
         
-        referenceHeadlinesVC.newsAPI(topic: topics[indexPath.row])
+        let topic = topics[indexPath.row]
+        let topicURL = "https://newsapi.org/v2/top-headlines?category=\(topic)&country=us&pageSize=20&apiKey="
+        referenceHeadlinesVC.googleNewsAPI(topicURL: topicURL)
     }
 }
