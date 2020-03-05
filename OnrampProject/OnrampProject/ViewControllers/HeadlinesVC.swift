@@ -58,7 +58,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
                 print("statusCode: \(response.statusCode)")
                 self.responseStatusCode = response.statusCode
             } else {
-                print("newsAPI() - FAILD")
+                print("newsAPI(topic: String) - FAILD")
                 return
             }
             
