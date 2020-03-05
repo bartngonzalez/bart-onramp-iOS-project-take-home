@@ -15,6 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.27450980392156865" green="0.25490196078431371" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.78039215689999997" green="0.94117647059999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g5C-UZ-V82">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -73,7 +74,7 @@
         <scene sceneID="35f-W1-VHO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6MQ-R6-Kn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Headlines" id="oAi-Kr-b90"/>
+                    <tabBarItem key="tabBarItem" title="Headlines" image="headlines-tabBar-icon-active" selectedImage="headlines-tabBar-icon-active" id="oAi-Kr-b90"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="rzV-bJ-xWh">
@@ -95,6 +96,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="search-icon" width="80" height="80"/>
+        <image name="headlines-tabBar-icon-active" width="23" height="23"/>
+        <image name="search-icon" width="60" height="60"/>
     </resources>
+    <color key="tintColor" red="0.78039215689999997" green="0.94117647059999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
 </document>

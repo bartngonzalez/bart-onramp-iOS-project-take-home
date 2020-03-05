@@ -15,6 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.27450980392156865" green="0.25490196078431371" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.7803921568627451" green="0.94117647058823528" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.27450980390000002" green="0.25490196079999999" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iHb-Ug-HuB">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -73,7 +75,7 @@
         <scene sceneID="AYl-ZZ-oaA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YfW-xj-T4b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My News" id="m6w-QF-LRC"/>
+                    <tabBarItem key="tabBarItem" title="My News" image="myNews-tabBar-icon-active" selectedImage="myNews-tabBar-icon-active" id="m6w-QF-LRC"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="eEf-aI-nb2">
@@ -95,6 +97,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="myNews-tabBar-icon-active" width="23" height="23"/>
         <image name="search-icon" width="60" height="60"/>
     </resources>
+    <color key="tintColor" red="0.78039215689999997" green="0.94117647059999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
 </document>
