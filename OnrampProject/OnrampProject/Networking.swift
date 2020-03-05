@@ -9,16 +9,18 @@ import Foundation
 
 class Networking {
     
-    private let apiKey = "57fd062826eb4196b020535fe631778d"
+    private let googleNewsAPIKey = "57fd062826eb4196b020535fe631778d"
     
     // MARK: Google News API for MyNewsVC, HeadlinsVC and SearchVC articles.
     func googleNewsAPI(url: String, completion: @escaping (Result<ArticleVM, Error>) -> ()) {
+        
+        let urlNoSpace = url.replacingOccurrences(of: " ", with: "")
         
         let headers = [
             "Content-Type": "application/json"
         ]
         
-        var request = URLRequest(url: URL(string: url + apiKey)!)
+        var request = URLRequest(url: URL(string: urlNoSpace + googleNewsAPIKey)!)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -30,7 +32,8 @@ class Networking {
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 print(response)
             } else {
-                completion(.failure(error!))
+                print("RESPONSE ERROR")
+                return
             }
             
             if let data = data {

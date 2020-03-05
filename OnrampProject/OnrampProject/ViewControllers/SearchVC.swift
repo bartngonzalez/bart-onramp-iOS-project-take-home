@@ -15,6 +15,7 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
     
     var responseStatusCode: Int = 0
     var articles: [ArticleVM] = []
+    let networking = Networking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,71 +36,33 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
         searchTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
     }
     
-    // MARK: SearchBar calls searchNewsAPI(input: String) with users input. Also checks for spaces and replaces it with "" since the API cannot search for a string with a space.
+    // MARK: SearchBar calls googleNewsAPI(searchBarInput: String)
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        print(searchText)
-        
-        searchNewsAPI(input: searchText.replacingOccurrences(of: " ", with: ""))
+        let url = "http://newsapi.org/v2/everything?q=\(searchText)&pageSize=30&apiKey="
+        googleNewsAPI(searchBarInput: url)
     }
     
-    func searchNewsAPI(input: String) {
+    func googleNewsAPI(searchBarInput: String) {
         
-        print("searchNewsAPI()")
-        
-        let headers = [
-            "Content-Type": "application/json"
-        ]
-        
-        var request = URLRequest(url: URL(string: "http://newsapi.org/v2/everything?q=\(input)&pageSize=30&apiKey=57fd062826eb4196b020535fe631778d")!)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: request) { (data, response, errir) in
+        networking.googleNewsAPI(url: searchBarInput) { (result) in
             
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print(response)
-                print("statusCode: \(response.statusCode)")
-                self.responseStatusCode = response.statusCode
-            } else {
-                print("searchNewsAPI - FAILD")
-                return
-            }
-            
-            if let data = data {
-                let decoder = JSONDecoder()
-                
-                do {
-                    decoder.dateDecodingStrategy = .iso8601
-                    let json = try decoder.decode(ArticleVM.self, from: data)
-                    print(json.status!)
-                    print(json.totalResults!)
-                    self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
-                    for x in self.articles {
-                        print(x.id!)
-                        print(x.name!)
-                        print(x.author!)
-                        print(x.title!)
-                        print(x.url!)
-                        print(x.urlToImage!)
-                        print(x.publishedAt!)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.searchTableView.reloadData()
-                    }
-                } catch {
-                    print(error)
+            switch result {
+            case .success(let json):
+                self.responseStatusCode = 200
+                self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
+                DispatchQueue.main.async {
+                    self.searchTableView.reloadData()
                 }
+            case .failure(let error):
+                print("Faild to get articles:", error)
+                self.responseStatusCode = 0
             }
-        }.resume()
+        }
     }
 }
 
-// MARK: UITableView Protocol config
+// MARK: UITableView Protocol config 
 extension SearchVC: SFSafariViewControllerDelegate {
     override func numberOfSections(in tableView: UITableView) -> Int {
         

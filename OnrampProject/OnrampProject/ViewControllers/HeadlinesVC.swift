@@ -38,6 +38,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         googleNewsAPI(topicURL: topicURL)
     }
     
+    // MARK: Google News API from Networking.swift
     func googleNewsAPI(topicURL: String) {
         
         networking.googleNewsAPI(url: topicURL) { (result) in
