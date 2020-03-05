@@ -56,7 +56,8 @@ class MyNewsVC: UITableViewController {
             } else {
                 print("stopUpdatingLocation")
                 locationManager.stopUpdatingLocation()
-                getUsersCityAPI(lat: latitude, lon: longitude)
+                let url = "https://api.opencagedata.com/geocode/v1/json?q=\(latitude)+\(longitude)&key="
+                openCageDataAPI(url: url)
             }
         case .denied:
             print(".denied")
@@ -73,9 +74,10 @@ class MyNewsVC: UITableViewController {
         }
     }
     
+    // MARK: Google News API from Networking.swift. Gets articles based on users city (location).
     func googleNewsAPI(usersCity: String) {
         
-        networking.googleNewsAPI(url: "http://newsapi.org/v2/everything?q=NewYork&pageSize=30&apiKey=") { (result) in
+        networking.googleNewsAPI(url: "http://newsapi.org/v2/everything?q=\(usersCity)&pageSize=30&apiKey=") { (result) in
             
             switch result {
             case .success(let json):
@@ -89,50 +91,21 @@ class MyNewsVC: UITableViewController {
         }
     }
     
-    // TODO: Add API to Networking.swift
-    // MARK: Gets users location from latitude and longitude using OpenCageData API
-    func getUsersCityAPI(lat: String, lon: String) {
+    // MARK: Open Cage Data API gets users city (location) from latitude and longitude. Calls Google News API to fetch articles.
+    func openCageDataAPI(url: String) {
         
-        print("getUsersCityAPI(lat: String, lon: String)")
-        
-        let headers = [
-            "Content-Type": "application/json"
-        ]
-        
-        var request = URLRequest(url: URL(string: "https://api.opencagedata.com/geocode/v1/json?q=\(lat)+\(lon)&key=3e2e5ffd217e4c3185e7aa66775ff778")!)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: request) { (data, response, error) in
-            
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print(response)
-                print("statusCode: \(response.statusCode)")
-            } else {
-                print("localNewsAPI() - FAILD")
-                return
-            }
-            
-            if let data = data {
-                let decoder = JSONDecoder()
-                
-                do {
-                    let json = try decoder.decode(LocationVM.self, from: data)
-                    self.results = json.results?.map({return LocationVM(result: $0)}) ?? []
-                    
-                    if let city = self.results[0].city {
-                        self.usersCity = city
-                        print(city)
-                        self.googleNewsAPI(usersCity: self.usersCity!)
-                    }
-                } catch {
-                    print(error)
+        networking.openCageDataAPI(url: url) { (result) in
+            switch result {
+            case .success(let json):
+                self.results = json.results?.map({return LocationVM(result: $0)}) ?? []
+                if let city = self.results[0].city {
+                    self.usersCity = city
+                    self.googleNewsAPI(usersCity: self.usersCity!)
                 }
+            case .failure(let error):
+                print("Faild to get users location:", error)
             }
-        }.resume()
+        }
     }
     
     @IBAction func presentSearchVC(_ sender: Any) {
