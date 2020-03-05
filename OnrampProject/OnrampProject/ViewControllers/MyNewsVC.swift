@@ -159,6 +159,16 @@ class MyNewsVC: UITableViewController {
             }
         }.resume()
     }
+    
+    @IBAction func presentSearchVC(_ sender: Any) {
+        
+        print("presentSearchVC")
+        
+        let storyboard = UIStoryboard(name: "Search", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SearchSB") as! SearchVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: UITableView Protocol config
