@@ -14,6 +14,8 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     
     var responseStatusCode: Int = 0
     var articles: [ArticleVM] = []
+    let networking = Networking()
+    var topicURL: String = "https://newsapi.org/v2/top-headlines?category=business&country=us&pageSize=20&apiKey=57fd062826eb4196b020535fe631778d"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,25 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         headlinesTableView.register(topicsTableViewCellXIB, forCellReuseIdentifier: "topicsCellXIB")
         headlinesTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
         
-        newsAPI(topic: "BUSINESS")
+        // Call API
+        googleNewsAPI(topicURL: topicURL)
+    }
+    
+    func googleNewsAPI(topicURL: String) {
+        
+        networking.googleNewsAPI(url: topicURL) { (result) in
+            switch result {
+            case .success(let json):
+                self.responseStatusCode = 200
+                self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
+                DispatchQueue.main.async {
+                    self.headlinesTableView.reloadData()
+                }
+            case .failure(let error):
+                print("Failed to get articles:", error)
+                self.responseStatusCode = 0
+            }
+        }
     }
     
     // TODO: Should move newsAPI a Networking.swift file
