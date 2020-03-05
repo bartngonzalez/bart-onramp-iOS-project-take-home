@@ -19,6 +19,7 @@ class MyNewsVC: UITableViewController {
     var results: [LocationVM] = []
     var articles: [ArticleVM] = []
     var usersCity: String?
+    let networking = Networking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,50 +73,24 @@ class MyNewsVC: UITableViewController {
         }
     }
     
-    func getLocalNewsAPI(usersCity: String) {
+    func googleNewsAPI(usersCity: String) {
         
-        print("getLocalNewsAPI(usersCity: String)")
-        
-        let headers = [
-            "Content-Type": "application/json"
-        ]
-        
-        var request = URLRequest(url: URL(string: "http://newsapi.org/v2/everything?q=\(usersCity)&pageSize=30&apiKey=57fd062826eb4196b020535fe631778d")!)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: request) { (data, response, error) in
+        networking.googleNewsAPI(url: "http://newsapi.org/v2/everything?q=NewYork&pageSize=30&apiKey=") { (result) in
             
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                print(response)
-                print("statusCode: \(response.statusCode)")
-            } else {
-                print("getLocalNewsAPI(usersCity: String)")
-                return
-            }
-            
-            if let data = data {
-                let decoder = JSONDecoder()
-                
-                do {
-                    decoder.dateDecodingStrategy = .iso8601
-                    let json = try decoder.decode(ArticleVM.self, from: data)
-                    self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
-                    
-                    DispatchQueue.main.async {
-                        self.myNewsTableView.reloadData()
-                    }
-                } catch {
-                    print(error)
+            switch result {
+            case .success(let json):
+                self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
+                DispatchQueue.main.async {
+                    self.myNewsTableView.reloadData()
                 }
+            case .failure(let error):
+                print("Faild to get articles:", error)
             }
-        }.resume()
+        }
     }
     
-    // MARK: Gets users location from latitude and longitude using opencagedata API
+    // TODO: Add API to Networking.swift
+    // MARK: Gets users location from latitude and longitude using OpenCageData API
     func getUsersCityAPI(lat: String, lon: String) {
         
         print("getUsersCityAPI(lat: String, lon: String)")
@@ -151,7 +126,7 @@ class MyNewsVC: UITableViewController {
                     if let city = self.results[0].city {
                         self.usersCity = city
                         print(city)
-                        self.getLocalNewsAPI(usersCity: city)
+                        self.googleNewsAPI(usersCity: self.usersCity!)
                     }
                 } catch {
                     print(error)
