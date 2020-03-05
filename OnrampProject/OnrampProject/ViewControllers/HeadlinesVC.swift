@@ -109,6 +109,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
     }
 }
 
+// MARK: UITableView Protocol config
 extension HeadlinesVC {
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -142,7 +143,6 @@ extension HeadlinesVC {
             let cell = headlinesTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
             
             cell.setArticles(article: article)
-            cell.setImageFromURL(url: article.urlToImage!)
             
             return cell
         }

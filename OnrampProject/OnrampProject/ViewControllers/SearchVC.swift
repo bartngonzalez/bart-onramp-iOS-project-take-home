@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SearchVC: UITableViewController, UISearchBarDelegate {
     
@@ -98,7 +99,8 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
     }
 }
 
-extension SearchVC {
+// MARK: UITableView Protocol config
+extension SearchVC: SFSafariViewControllerDelegate {
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         if responseStatusCode == 200 {
@@ -119,8 +121,18 @@ extension SearchVC {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
         
         cell.setArticles(article: article)
-        cell.setImageFromURL(url: article.urlToImage!)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        searchTableView.deselectRow(at: indexPath, animated: true)
+        
+        if let url = URL(string: articles[indexPath.row].url!) {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            present(vc, animated: true)
+        }
     }
 }

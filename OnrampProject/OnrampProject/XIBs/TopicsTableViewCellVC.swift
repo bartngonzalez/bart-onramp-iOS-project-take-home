@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class TopicsTableViewCellVC: UITableViewCell {
 
     @IBOutlet weak var topicsCollectionView: UICollectionView!
     
@@ -24,6 +24,16 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
         let topicsCollectionViewCell = UINib(nibName: "TopicCollectionViewCell", bundle: nil)
         topicsCollectionView.register(topicsCollectionViewCell, forCellWithReuseIdentifier: "topicCollectionViewCellXIB")
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+}
+
+// MARK: UICollectionView Protocol's config
+extension TopicsTableViewCellVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -47,11 +57,5 @@ class TopicsTableViewCellVC: UITableViewCell, UICollectionViewDelegate, UICollec
         print("indexPath: \(indexPath)")
         
         referenceHeadlinesVC.newsAPI(topic: topics[indexPath.row])
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

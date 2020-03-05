@@ -31,6 +31,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My News" id="Rj9-4r-1iU"/>
+                    <connections>
+                        <outlet property="myNewsTableView" destination="XXl-GU-eGA" id="zq5-LU-EHP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poc-rK-IIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,8 +7,11 @@
 
 import UIKit
 import CoreLocation
+import SafariServices
 
 class MyNewsVC: UITableViewController {
+    
+    @IBOutlet var myNewsTableView: UITableView!
     
     let locationManager = CLLocationManager()
     var latitude: String = "0.000000"
@@ -24,10 +27,20 @@ class MyNewsVC: UITableViewController {
         
         self.title = "My News"
         
+        // UITableView's
+        myNewsTableView.delegate = self
+        myNewsTableView.dataSource = self
+        
+        // CoreLocation
         locationManager.delegate = self
         checkLocationAuthorization()
+        
+        // XIB
+        let articleTableViewCellXIB = UINib(nibName: "ArticleTableViewCell", bundle: nil)
+        myNewsTableView.register(articleTableViewCellXIB, forCellReuseIdentifier: "articleCellXIB")
     }
     
+    // MARK: Determine authorization status. Show articles if .authorizedWhenInUse or remove if .denied
     func checkLocationAuthorization() {
         
         print("checkLocationAuthorization()")
@@ -46,6 +59,8 @@ class MyNewsVC: UITableViewController {
             }
         case .denied:
             print(".denied")
+            self.articles = []
+            myNewsTableView.reloadData()
             locationManager.requestWhenInUseAuthorization()
         case .notDetermined:
             print(".notDetermined")
@@ -89,7 +104,10 @@ class MyNewsVC: UITableViewController {
                     decoder.dateDecodingStrategy = .iso8601
                     let json = try decoder.decode(ArticleVM.self, from: data)
                     self.articles = json.articles?.map({return ArticleVM(article: $0)}) ?? []
-                    print("total articles: \(self.articles.count)")
+                    
+                    DispatchQueue.main.async {
+                        self.myNewsTableView.reloadData()
+                    }
                 } catch {
                     print(error)
                 }
@@ -97,6 +115,7 @@ class MyNewsVC: UITableViewController {
         }.resume()
     }
     
+    // MARK: Gets users location from latitude and longitude using opencagedata API
     func getUsersCityAPI(lat: String, lon: String) {
         
         print("getUsersCityAPI(lat: String, lon: String)")
@@ -142,6 +161,42 @@ class MyNewsVC: UITableViewController {
     }
 }
 
+// MARK: UITableView Protocol config
+extension MyNewsVC: SFSafariViewControllerDelegate {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        self.articles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let article = articles[indexPath.row]
+        let cell = myNewsTableView.dequeueReusableCell(withIdentifier: "articleCellXIB") as! ArticleTableViewCellVC
+        
+        cell.setArticles(article: article)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        myNewsTableView.deselectRow(at: indexPath, animated: true)
+        
+        if let url = URL(string: articles[indexPath.row].url!) {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            present(vc, animated: true)
+        }
+    }
+}
+
+// MARK: CLLocationManager Protocol config
 extension MyNewsVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
