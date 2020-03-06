@@ -20,6 +20,9 @@
 		CC7FC636240B40DE00EBC678 /* ArticleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FC635240B40DE00EBC678 /* ArticleVM.swift */; };
 		CC8C7A58240F8DE80083D0EF /* MyNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8C7A57240F8DE80083D0EF /* MyNewsVC.swift */; };
 		CC8E10232410BC5000D97BF7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E10222410BC5000D97BF7 /* Networking.swift */; };
+		CC9F31102412295100CE85E2 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC9F310F2412295100CE85E2 /* Signin.storyboard */; };
+		CC9F311224122B1500CE85E2 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9F311124122B1500CE85E2 /* SigninVC.swift */; };
+		CC9F311424122FAC00CE85E2 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9F311324122FAC00CE85E2 /* Switcher.swift */; };
 		CCBFA08E240A1B810038B55E /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */; };
 		CCBFA090240A1C980038B55E /* MyNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA08F240A1C980038B55E /* MyNews.storyboard */; };
 		CCBFA094240A1CD60038B55E /* Headlines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFA093240A1CD60038B55E /* Headlines.storyboard */; };
@@ -70,6 +73,9 @@
 		CC7FC635240B40DE00EBC678 /* ArticleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVM.swift; sourceTree = "<group>"; };
 		CC8C7A57240F8DE80083D0EF /* MyNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsVC.swift; sourceTree = "<group>"; };
 		CC8E10222410BC5000D97BF7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		CC9F310F2412295100CE85E2 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
+		CC9F311124122B1500CE85E2 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
+		CC9F311324122FAC00CE85E2 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		CCBFA08D240A1B810038B55E /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		CCBFA08F240A1C980038B55E /* MyNews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyNews.storyboard; sourceTree = "<group>"; };
 		CCBFA093240A1CD60038B55E /* Headlines.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Headlines.storyboard; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 				6030FC6F23FF0C79007F0901 /* AppDelegate.swift */,
 				6030FC7123FF0C79007F0901 /* SceneDelegate.swift */,
 				CC8E10222410BC5000D97BF7 /* Networking.swift */,
+				CC9F311324122FAC00CE85E2 /* Switcher.swift */,
 				6030FC7823FF0C7A007F0901 /* Assets.xcassets */,
 				6030FC7A23FF0C7A007F0901 /* LaunchScreen.storyboard */,
 				6030FC7D23FF0C7A007F0901 /* Info.plist */,
@@ -176,9 +183,10 @@
 		CCBFA088240A12B80038B55E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC8C7A57240F8DE80083D0EF /* MyNewsVC.swift */,
 				CCBFA097240A2D6A0038B55E /* HeadlinesVC.swift */,
 				CC458C3B240E02B50084ABCA /* SearchVC.swift */,
-				CC8C7A57240F8DE80083D0EF /* MyNewsVC.swift */,
+				CC9F311124122B1500CE85E2 /* SigninVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 				CCBFA08F240A1C980038B55E /* MyNews.storyboard */,
 				CCBFA093240A1CD60038B55E /* Headlines.storyboard */,
 				CC458C39240E02A30084ABCA /* Search.storyboard */,
+				CC9F310F2412295100CE85E2 /* Signin.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -327,6 +336,7 @@
 				CCBFA090240A1C980038B55E /* MyNews.storyboard in Resources */,
 				CC0AD1CB240CFD1C00B1CF45 /* TopicsTableViewCell.xib in Resources */,
 				CCBFA09F240A2FA60038B55E /* ArticleTableViewCell.xib in Resources */,
+				CC9F31102412295100CE85E2 /* Signin.storyboard in Resources */,
 				6030FC7923FF0C7A007F0901 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,8 +364,10 @@
 			files = (
 				6030FC7023FF0C79007F0901 /* AppDelegate.swift in Sources */,
 				CCC572F9241061C8005A49B9 /* Location.swift in Sources */,
+				CC9F311224122B1500CE85E2 /* SigninVC.swift in Sources */,
 				CC0AD1CA240CFD1C00B1CF45 /* TopicsTableViewCellVC.swift in Sources */,
 				CC8E10232410BC5000D97BF7 /* Networking.swift in Sources */,
+				CC9F311424122FAC00CE85E2 /* Switcher.swift in Sources */,
 				CC8C7A58240F8DE80083D0EF /* MyNewsVC.swift in Sources */,
 				6030FC7223FF0C79007F0901 /* SceneDelegate.swift in Sources */,
 				CCBFA0A1240A35070038B55E /* ArticleTableViewCellVC.swift in Sources */,
@@ -461,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

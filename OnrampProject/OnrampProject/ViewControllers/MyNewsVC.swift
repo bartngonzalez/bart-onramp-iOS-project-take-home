@@ -117,6 +117,16 @@ class MyNewsVC: UITableViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func signOutButton(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isAuth")
+        
+        if #available(iOS 13.0, *) {
+            Switcher.sceneUpdateRootVC()
+        } else {
+            Switcher.appDelegateRootVC()
+        }
+    }
 }
 
 // MARK: UITableView Protocol config
