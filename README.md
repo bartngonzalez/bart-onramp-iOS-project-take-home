@@ -1,5 +1,8 @@
 # bart-onramp-iOS-project-take-home
 
+## Screenshots
+![](Screenshots/app-screenshots.png)
+
 ## Description
 OnrampNews iOS application shows articles provided by the Google News API. Users are shown a list of articles that can be selected and redirected to the source website. The (My News) tab displays articles related to the users location. (Headlines) tab shows top articles based on five different categories (Business, Technology, Sports, Science and Health). The (Search) view allows the user's input retrieving a list of news articles based on the keyword.
 
@@ -63,5 +66,3 @@ By creating the Network.swift class I was able to request the data (json) from b
 ---
 ##### UI Design:
 Using the (UITableViewCell and UICollectionViewCell) XIBs kept the Storyboards design simple. This makes the tableview modular allowing for different cell designs.
-
-## Screenshots
