@@ -38,7 +38,7 @@ struct ArticleVM: Codable {
         self.articles = try container.decode([Article].self, forKey: .articles)
     }
     
-    // MARK: set article's data with respective data
+    // MARK: Set article's data with respective data
     init(article: Article) {
         self.id = article.source.id ?? "id missing"
         self.name = article.source.name ?? "name missing"

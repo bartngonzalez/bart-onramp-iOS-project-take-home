@@ -63,6 +63,7 @@ class HeadlinesVC: UITableViewController, SFSafariViewControllerDelegate {
         headlinesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
+    // MARK: Show SearchVC
     @IBAction func presentSearchVC(_ sender: Any) {
         
         print("presentSearchVC")

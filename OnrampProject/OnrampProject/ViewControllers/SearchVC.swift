@@ -43,6 +43,7 @@ class SearchVC: UITableViewController, UISearchBarDelegate {
         googleNewsAPI(searchBarInput: url)
     }
     
+    // MARK: Google News API from Networking.swift
     func googleNewsAPI(searchBarInput: String) {
         
         networking.googleNewsAPI(url: searchBarInput) { (result) in
